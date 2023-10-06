@@ -14,7 +14,6 @@ trigger populateAccountCountries on Contact (after insert,after update ,after de
         }
         }
     }
-    
     List<Account> accs= [Select Id,Account_Countries__c,(Select Id,AccountId,Contact_Country__c from Contacts) from Account where Id IN:accIds];
     Map<Id,Account> mapToUpdate = new Map<Id,Account>();
     for(Account acc:accs){
@@ -31,5 +30,4 @@ trigger populateAccountCountries on Contact (after insert,after update ,after de
     if(mapToUpdate.keySet()!=null){
         update mapToUpdate.values();
     }
-
 }

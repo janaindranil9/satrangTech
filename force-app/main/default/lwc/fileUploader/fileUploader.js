@@ -6,7 +6,7 @@ import createChildRecords from '@salesforce/apex/FileUploaderController.createCh
 export default class FileUploader extends LightningElement {
   @track selectedFile;
   @track isUploadDisabled = true;
-
+  //comment
   handleFileChange(event) {
     this.selectedFile = event.target.files[0];
     this.isUploadDisabled = !(this.selectedFile && this.validateFileSize(this.selectedFile));
